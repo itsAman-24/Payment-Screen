@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="bg-gradient-to-r from-[#86BAE380] to-[#3180BD80] pt-6 flex flex-col  items-center text-center w-full h-[14rem] ">
+    <div className="bg-gradient-to-r from-[#86BAE380] to-[#3180BD80] pt-6 flex flex-col  items-center text-center w-100vw h-[14rem] ">
       <div className="mb-4 text-[#124974]">
         <h2 className="text-2xl mb-4 font-semibold">Complete Your Purchase</h2>
       </div>
