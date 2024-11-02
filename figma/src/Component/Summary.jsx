@@ -10,7 +10,7 @@ const Summary = ({
   handleChangePlan
 }) => {
   return (
-    <div className="relative w-[26.4rem] bottom-[62rem] left-[45rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-xl">
+    <div className="relative w-[26.4rem] bottom-[62rem] left-[48rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-xl">
       <h2 className="summary-heading text-[1.25rem] font-semibold mb-[.8rem] border-b border-[#b7b5b5] pb-[1rem]">
         Summary
       </h2>
@@ -21,19 +21,14 @@ const Summary = ({
           </strong>
         </p>
         <div className="price flex justify-between mb-[.8rem]">
-          <p className="text-[1rem]">{`₹${pricePerUser} / employee / month`}</p>
-          <p className="text-[.9rem]">Subtotal: ₹{userCount * pricePerUser}</p>
+          <p className="text-[1rem] font-normal">{`₹${pricePerUser} / employee / month`}</p>
+          <p className="text-[.9rem] font-normal">₹{userCount * pricePerUser}</p>
         </div>
 
         <a
           onClick={() => handleChangePlan(billingCycle)}
           href="#"
-          style={{
-            color: "#146EB4",
-            textDecoration: "none",
-            marginTop: "3rem",
-            fontSize: "14px",
-          }}
+          className="text-[#146EB4] no-underline mt-[1.9rem] text-[.9rem] font-normal"
         >
           Change plan
         </a>
@@ -41,13 +36,8 @@ const Summary = ({
 
       <div style={{ marginBottom: "10px" }}>
         <a
-          href="#"
-          style={{
-            color: "#1A181E",
-            borderBottom: "2px solid #2a292c",
-            fontWeight: "500",
-            fontSize: "14px",
-          }}
+          href="#"         
+          className="text-[#1A181E] border-b-2 border-[#2a292c] font-semibold text-[.9rem]"
         >
           Enter promo code
         </a>

@@ -8,7 +8,7 @@ const ProductSelection = ({
 }) => {
   return (
     <div className="sub-container bg-white pl-[6.4rem]">
-      <div className="product-box relative bg-white rounded-lg p-6 shadow-xl w-[34.5rem] bottom-[4rem] ml-[2rem]">
+      <div className="product-box relative bg-white rounded-lg p-6 shadow-xl w-[34.5rem] bottom-[4rem] ml-[4rem]">
         <div className="flex items-center gap-3 border-b border-[#D9D9D9] align-middle pb-4">
           <img
             src="https://pbs.twimg.com/profile_images/1402181651036213249/cipFOVap_400x400.jpg"
@@ -40,7 +40,7 @@ const ProductSelection = ({
               type="number"
               value={userCount}
               readOnly
-              className="w-[11rem] h-[2.2rem] text-left p-[0.5rem] border-2 border-[#E5E7EB] text-black rounded-tl-md rounded-bl-md"
+              className="w-[11rem] h-[2.2rem] text-left p-[0.5rem] border-2 border-[#E5E7EB] text-[#146EB4] rounded-tl-md rounded-bl-md"
             />
             <button
               onClick={() => handleUserCountChange(-1)}

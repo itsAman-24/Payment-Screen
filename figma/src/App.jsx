@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "./Component/Header";
 import ProductSelection from "./Component/ProductSelection";
 import Invoice from "./Component/Invoice";
-import Summary from "./Summary";
-import Submit from "./Submit";
+import Summary from "./Component/Summary";
+import Submit from "./Component/Submit";
 
 const App = () => {
   const [userCount, setUserCount] = useState(1);
