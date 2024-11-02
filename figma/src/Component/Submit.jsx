@@ -22,7 +22,6 @@ const styles = {
     padding: "20px",
     borderRadius: "8px",
     backgroundColor: "#fff",
-    // border: "1px solid #d0d4e4",
     width: "80%",
     maxWidth: "400px",
     margin: "20px auto",

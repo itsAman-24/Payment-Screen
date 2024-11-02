@@ -8,7 +8,7 @@ const ProductSelection = ({
 }) => {
   return (
     <div className="sub-container bg-white pl-[6.4rem]">
-      <div className="product-box relative bg-white rounded-lg p-6 shadow-xl w-[34.5rem] bottom-[4rem] ml-[4rem]">
+      <div className="product-box relative bg-white rounded-lg p-6 shadow-xl w-[36.7rem] bottom-[4rem] ml-[6rem]">
         <div className="flex items-center gap-3 border-b border-[#D9D9D9] align-middle pb-4">
           <img
             src="https://pbs.twimg.com/profile_images/1402181651036213249/cipFOVap_400x400.jpg"
@@ -24,7 +24,6 @@ const ProductSelection = ({
             <strong className="text-[1.12rem] font-medium">
               Select the number of users
             </strong>
-            {/* <i class="fa-solid fa-circle-info text-[#146EB4] ml-[.5rem] mt-[.2rem] text-base"></i> */}
             <img
               src="https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/64491cbd518384eb0d3605e1_info.svg"
               alt=""

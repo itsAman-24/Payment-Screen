@@ -10,7 +10,7 @@ const Summary = ({
   handleChangePlan
 }) => {
   return (
-    <div className="relative w-[26.4rem] bottom-[62rem] left-[48rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-xl">
+    <div className="relative w-[27.4rem] bottom-[62rem] left-[52rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-xl">
       <h2 className="summary-heading text-[1.25rem] font-semibold mb-[.8rem] border-b border-[#b7b5b5] pb-[1rem]">
         Summary
       </h2>

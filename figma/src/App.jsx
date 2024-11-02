@@ -49,10 +49,8 @@ const App = () => {
   }
 
   return (
-    <div className="w-full min-h-screen p-8 flex flex-col back">
+    <div className="w-full min-h-screen pt-8 flex flex-col">
       <Header />
-
-      {/* Product Selection Section */}
 
       <ProductSelection
         handleUserCountChange={handleUserCountChange}

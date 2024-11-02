@@ -1,6 +1,6 @@
 const Invoice = () => {
   return (
-    <div className="invoice-details relative bg-white shadow-xl flex flex-col w-[34.5rem] gap-6 rounded-lg p-[1.3rem] left-[10.2rem] bottom-[2rem] pb-[3rem]">
+    <div className="invoice-details relative bg-white shadow-xl flex flex-col w-[36.7rem] gap-6 rounded-lg p-[1.3rem] left-[12.2rem] bottom-[2rem] pb-[3rem]">
       <div className="flex flex-row">
       <h2 className="text-[1.25rem] font-semibold">Invoice details</h2>
       <img
