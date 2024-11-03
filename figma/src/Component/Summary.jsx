@@ -1,27 +1,22 @@
 import { useMemo } from "react";
+import PropTypes from 'prop-types';
 
-const Summary = ({
-  billingCycle,
-  userCount,
-  handleSubmitPurchase,
-  handleChangePlan,
-}) => {
-  //calculating some dependent values
-  let pricePerUser = 1200;
-  if (billingCycle === "yearly") {
-    pricePerUser = 1800;
+const Summary = (props) => {
+  const { billingCycle, userCount, setIsSubmitted, setBillingCycle } = props
+
+  const pricePerUser = (billingCycle === "yearly") ? 1800 : 1200
+  const subtotal = userCount * pricePerUser
+  const [total, gst] = useMemo(() => {
+    return [subtotal + (subtotal * 0.18), subtotal * 0.18]
+  }, [subtotal])
+
+  // Handles the change of the plan
+  function handleChangePlan() {
+    setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly");
   }
 
-  //Ensure that these values only be recalculated when its dependencies changes (userCount, pricePerUser -> which changes with the change in billing cycle)
-  const { payableAmt, gstAmt } = useMemo(() => {
-    const payableAmt = userCount * pricePerUser;
-    const gstAmt = payableAmt * 0.18;
-
-    return { payableAmt, gstAmt };
-  }, [userCount, pricePerUser]);
-
   return (
-    <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">
+    <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] 2xl:left-[54rem] 3xl:left-[56rem] 4xl:left-[60rem] 5xl:left-[66rem] 6xl:left-[75rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">
       <h2 className="summary-heading text-[1.25rem] font-semibold mb-[.8rem] border-b border-[#b7b5b5] pb-[1rem]">
         Summary
       </h2>
@@ -39,9 +34,8 @@ const Summary = ({
         </div>
 
         <a
-          onClick={() => handleChangePlan(billingCycle)}
-          href="#"
-          className="text-[#146EB4] no-underline mt-[1.9rem] text-[.9rem] font-normal"
+          onClick={() => handleChangePlan()}
+          className="text-[#146EB4] no-underline mt-[1.9rem] text-[.9rem] font-normal cursor-pointer"
         >
           Change plan
         </a>
@@ -59,22 +53,22 @@ const Summary = ({
       <div className="border-b border-t border-[#b7b5b5] mt-[1.25rem] pt-[.63rem] pb-[.63rem]">
         <div className="font-normal text-[.9rem] flex justify-between mb-[.63rem] text-[#1A181E]">
           <p>Subtotal</p>
-          <p>₹{payableAmt}</p>
+          <p>₹{userCount * pricePerUser}</p>
         </div>
 
         <div className="font-normal text-[.9rem] flex justify-between text-[#1A181E]">
           <p>GST (18%)</p>
-          <p>₹{gstAmt}</p>
+          <p>₹{gst.toFixed(2)}</p>
         </div>
       </div>
 
       <div className="flex justify-between mb-[1.25rem]">
         <p className="font-semibold text-[1.2rem]">Total</p>
-        <p className="font-semibold text-[1.2rem]">₹{payableAmt + gstAmt}</p>
+        <p className="font-semibold text-[1.2rem]">₹{total.toFixed(2)}</p>
       </div>
 
       <div
-        onClick={() => handleSubmitPurchase()}
+        onClick={() => setIsSubmitted(true)}
         className="bg-[#146EB4] text-[#fff] mt-[.6rem] px-[.6rem] py-[.9rem] border-none rounded-md w-full cursor-pointer h-[3rem] flex flex-row justify-center align-middle"
       >
         <img
@@ -105,13 +99,21 @@ const Summary = ({
           </a>
           . You also agree to auto renewal of your yearly subscription for
           US$136.99, which can be disabled at any time through your account. Any
-          eligible tax exemptions will be applied when you're charged for your
+          eligible tax exemptions will be applied when you are charged for your
           next renewal payment. Your card details will be saved for future
           purchases and subscription renewals.
         </p>
       </div>
     </div>
   );
+};
+
+// Adding prop types for validation
+Summary.propTypes = {
+  billingCycle: PropTypes.string.isRequired,
+  userCount: PropTypes.number.isRequired,
+  setIsSubmitted: PropTypes.func.isRequired,
+  setBillingCycle: PropTypes.func.isRequired
 };
 
 export default Summary;
