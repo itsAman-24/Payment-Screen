@@ -14,7 +14,7 @@ const ProductSelection = ({
             className="w-[2.25rem] h-[1.9rem] rounded-md"
           />
           <h2 className="text-xl font-semibold">Your products</h2>
-          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem]"></i>
+          <i className="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem]"></i>
         </div>
 
         <div className="user-selection mt-[1rem]">
@@ -62,7 +62,6 @@ const ProductSelection = ({
             <div
               onClick={() => {
                 handleBillingCycleChange("monthly");
-                handleMonthlyActive();
               }}
               className={`flex flex-col justify-center items-left border rounded-lg p-8 cursor-pointer transition duration-300 w-[16rem] h-[8.5rem]
                 ${
@@ -81,7 +80,6 @@ const ProductSelection = ({
             <div
               onClick={() => {
                 handleBillingCycleChange("yearly");
-                handleYearlyActive();
               }}
               className={`flex flex-col justify-center items-left border rounded-lg p-8 cursor-pointer transition duration-300 w-[16rem] h-[8.5rem]
                 ${

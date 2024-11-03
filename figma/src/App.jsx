@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Component/Header";
 import ProductSelection from "./Component/ProductSelection";
 import Invoice from "./Component/Invoice";
@@ -8,18 +8,13 @@ import Submit from "./Component/Submit";
 const App = () => {
   const [userCount, setUserCount] = useState(1);
   const [billingCycle, setBillingCycle] = useState("monthly"); // 'monthly' or 'yearly'
-  const [pricePerUser, setPricePerUser] = useState(1200);
-  const [gst, setGst] = useState(0);
-  const [total, setTotal] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [totalAmt, setTotalAmt] = useState(0);
 
-  // Update total price whenever user count or billing cycle (yearly or monthly) changes
-  useEffect(() => {
-    const subtotal = userCount * pricePerUser;
-    const calculatedGst = subtotal * 0.18; // GST is 18%
-    setGst(calculatedGst);
-    setTotal(subtotal + calculatedGst);
-  }, [userCount, pricePerUser]);
+  const TotalPayableAmount  = (pricePerUser, gstAmt) => {
+    const totalAmt = (pricePerUser * userCount + gstAmt);
+    setTotalAmt(totalAmt);
+  }
 
   // Handles the change in total number of users want to buy plan
   const handleUserCountChange = (increment) => {
@@ -29,7 +24,6 @@ const App = () => {
   //Handles the billing cycle change of the plan
   const handleBillingCycleChange = (cycle) => {
     setBillingCycle(cycle);
-    setPricePerUser(cycle === "monthly" ? 1200 : 1800);
     console.log(billingCycle);
   };
 
@@ -45,8 +39,7 @@ const App = () => {
 
   //Handles the change of the plan
   function handleChangePlan(cycle) {
-    setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly");
-    setPricePerUser(cycle === "yearly" ? 1200 : 1800);
+    setBillingCycle(cycle === "monthly" ? "yearly" : "monthly");
   }
 
   return (
@@ -63,14 +56,12 @@ const App = () => {
       <Invoice />
 
       {isSubmitted ? (
-        <Submit total={total} handleBackToSummary={handleBackToSummary} />
+        <Submit TotalPayableAmount={totalAmt} handleBackToSummary={handleBackToSummary} />
       ) : (
         <Summary
+          TotalPayableAmount={TotalPayableAmount}
           billingCycle={billingCycle}
-          pricePerUser={pricePerUser}
           userCount={userCount}
-          gst={gst}
-          total={total}
           handleSubmitPurchase={handleSubmitPurchase}
           handleChangePlan={handleChangePlan}
         />

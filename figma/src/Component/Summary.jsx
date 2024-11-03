@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 
 const Summary = ({
   billingCycle,
-  pricePerUser,
   userCount,
-  gst,
-  total,
   handleSubmitPurchase,
   handleChangePlan,
+  TotalPayableAmount,
 }) => {
+  //calculating some dependent values
+  let pricePerUser = 1200;
+  if (billingCycle === "yearly") {
+    pricePerUser = 1800;
+  }
+
+  //Ensure that these values only be recalculated when its dependencies changes (userCount, pricePerUser -> which changes with the change in billing cycle)
+  const { payableAmt, gstAmt } = useMemo(() => {
+    const payableAmt = userCount * pricePerUser;
+    const gstAmt = payableAmt * 0.18;
+
+    return { payableAmt, gstAmt };
+  }, [userCount, pricePerUser]);
+
+  useEffect(() => {
+    TotalPayableAmount(pricePerUser, gstAmt);
+  }, [payableAmt, gstAmt]);
+
   return (
     <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">
       <h2 className="summary-heading text-[1.25rem] font-semibold mb-[.8rem] border-b border-[#b7b5b5] pb-[1rem]">
@@ -48,18 +64,18 @@ const Summary = ({
       <div className="border-b border-t border-[#b7b5b5] mt-[1.25rem] pt-[.63rem] pb-[.63rem]">
         <div className="font-normal text-[.9rem] flex justify-between mb-[.63rem] text-[#1A181E]">
           <p>Subtotal</p>
-          <p>₹{userCount * pricePerUser}</p>
+          <p>₹{payableAmt}</p>
         </div>
 
         <div className="font-normal text-[.9rem] flex justify-between text-[#1A181E]">
           <p>GST (18%)</p>
-          <p>₹{gst.toFixed(2)}</p>
+          <p>₹{gstAmt}</p>
         </div>
       </div>
 
       <div className="flex justify-between mb-[1.25rem]">
         <p className="font-semibold text-[1.2rem]">Total</p>
-        <p className="font-semibold text-[1.2rem]">₹{total.toFixed(2)}</p>
+        <p className="font-semibold text-[1.2rem]">₹{payableAmt + gstAmt}</p>
       </div>
 
       <div

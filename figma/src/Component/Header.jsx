@@ -11,17 +11,17 @@ const Header = () => {
         </p>
 
         <div className="flex flex-row gap-[.5rem]">
-          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <i className="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
           <p>24/7 customer care</p>
         </div>
 
         <div className="flex flex-row gap-[.5rem]">
-          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <i className="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
           <p>24/7 customer care</p>
         </div>
 
         <div className="flex flex-row gap-[.5rem]">
-          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <i className="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
           <p>24/7 customer care</p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Submit = ({ total, handleBackToSummary }) => {
+const Submit = ({ TotalPayableAmount, handleBackToSummary }) => {
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>Order Placed Successfully!</h2>
@@ -8,7 +8,7 @@ const Submit = ({ total, handleBackToSummary }) => {
         Thank you for your submission. We will get back to you soon.
       </p>
       <p style={styles.payment}>Amount Payable</p>
-      <p style={styles.amount}>₹{total}</p>
+      <p style={styles.amount}>₹{TotalPayableAmount}</p>
       <button style={styles.btn} onClick={() => handleBackToSummary()}>
         Done
       </button>
