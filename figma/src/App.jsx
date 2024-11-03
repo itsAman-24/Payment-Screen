@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./Component/Header";
 import ProductSelection from "./Component/ProductSelection";
 import Invoice from "./Component/Invoice";
@@ -7,14 +7,8 @@ import Submit from "./Component/Submit";
 
 const App = () => {
   const [userCount, setUserCount] = useState(1);
-  const [billingCycle, setBillingCycle] = useState("monthly"); // 'monthly' or 'yearly'
+  const [billingCycle, setBillingCycle] = useState("monthly");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [totalAmt, setTotalAmt] = useState(0);
-
-  const TotalPayableAmount  = (pricePerUser, gstAmt) => {
-    const totalAmt = (pricePerUser * userCount + gstAmt);
-    setTotalAmt(totalAmt);
-  }
 
   // Handles the change in total number of users want to buy plan
   const handleUserCountChange = (increment) => {
@@ -24,7 +18,7 @@ const App = () => {
   //Handles the billing cycle change of the plan
   const handleBillingCycleChange = (cycle) => {
     setBillingCycle(cycle);
-    console.log(billingCycle);
+    // console.log(billingCycle);
   };
 
   //Handles when the user submits the purchase
@@ -56,10 +50,13 @@ const App = () => {
       <Invoice />
 
       {isSubmitted ? (
-        <Submit TotalPayableAmount={totalAmt} handleBackToSummary={handleBackToSummary} />
+        <Submit
+          userCount={userCount}
+          billingCycle={billingCycle}
+          handleBackToSummary={handleBackToSummary}
+        />
       ) : (
         <Summary
-          TotalPayableAmount={TotalPayableAmount}
           billingCycle={billingCycle}
           userCount={userCount}
           handleSubmitPurchase={handleSubmitPurchase}

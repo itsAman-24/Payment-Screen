@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 const Summary = ({
   billingCycle,
   userCount,
   handleSubmitPurchase,
   handleChangePlan,
-  TotalPayableAmount,
 }) => {
   //calculating some dependent values
   let pricePerUser = 1200;
@@ -20,10 +19,6 @@ const Summary = ({
 
     return { payableAmt, gstAmt };
   }, [userCount, pricePerUser]);
-
-  useEffect(() => {
-    TotalPayableAmount(pricePerUser, gstAmt);
-  }, [payableAmt, gstAmt]);
 
   return (
     <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">

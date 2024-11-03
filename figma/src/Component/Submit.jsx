@@ -1,6 +1,18 @@
-import React from "react";
+import { useMemo } from "react";
 
-const Submit = ({ TotalPayableAmount, handleBackToSummary }) => {
+const Submit = ({ userCount, billingCycle, handleBackToSummary }) => {
+  let pricePerUser = 1200;
+  if (billingCycle === "yearly") {
+    pricePerUser = 1800;
+  }
+  const { totalAmt } = useMemo(() => {
+    const payableAmt = userCount * pricePerUser;
+    const gstAmt = payableAmt * 0.18;
+    const totalAmt = payableAmt + gstAmt;
+
+    return { totalAmt };
+  }, [userCount, pricePerUser]);
+
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>Order Placed Successfully!</h2>
@@ -8,7 +20,7 @@ const Submit = ({ TotalPayableAmount, handleBackToSummary }) => {
         Thank you for your submission. We will get back to you soon.
       </p>
       <p style={styles.payment}>Amount Payable</p>
-      <p style={styles.amount}>₹{TotalPayableAmount}</p>
+      <p style={styles.amount}>₹{totalAmt}</p>
       <button style={styles.btn} onClick={() => handleBackToSummary()}>
         Done
       </button>
