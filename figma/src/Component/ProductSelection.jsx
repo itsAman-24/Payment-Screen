@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const ProductSelection = ({
   handleUserCountChange,
   handleBillingCycleChange,
@@ -8,8 +6,8 @@ const ProductSelection = ({
 }) => {
   return (
     <div className="sub-container bg-white pl-[6.4rem]">
-      <div className="product-box relative bg-white rounded-lg p-6 shadow-xl w-[36.7rem] bottom-[4rem] ml-[6rem]">
-        <div className="flex items-center gap-3 border-b border-[#D9D9D9] align-middle pb-4">
+      <div className="product-box relative bg-white rounded-lg p-6 shadow-2xl w-[36.7rem] bottom-[4rem] ml-[6rem]">
+        <div className="flex items-center gap-3 border-b border-[#b7b5b5] align-middle pb-4">
           <img
             src="https://pbs.twimg.com/profile_images/1402181651036213249/cipFOVap_400x400.jpg"
             alt=""
@@ -39,17 +37,17 @@ const ProductSelection = ({
               type="number"
               value={userCount}
               readOnly
-              className="w-[11rem] h-[2.2rem] text-left p-[0.5rem] border-2 border-[#E5E7EB] text-[#146EB4] rounded-tl-md rounded-bl-md"
+              className="w-[11rem] h-[2.2rem] text-left p-[0.5rem] border-2 border-[#b7b5b5] text-[#146EB4] rounded-tl-md rounded-bl-md"
             />
             <button
               onClick={() => handleUserCountChange(-1)}
-              className="border-t-2 border-r-2 border-b-2 border-[#E5E7EB] w-[2.31rem]  h-[2.2rem]  bg-white text-[#656668] cursor-pointer   transition duration-200 hover:bg-[#e8e6e6]"
+              className="border-t-2 border-r-2 border-b-2 border-[#b7b5b5] w-[2.31rem]  h-[2.2rem]  bg-white text-[#656668] cursor-pointer   transition duration-200 hover:bg-[#e8e6e6]"
             >
               -
             </button>
             <button
               onClick={() => handleUserCountChange(1)}
-              className="border-t-2 border-r-2 border-b-2 border-[#E5E7EB] w-[2.31rem] h-[2.2rem] rounded-tr-md rounded-br-md bg-white text-[#656668] cursor-pointer  transition duration-200 hover:bg-[#e8e6e6]"
+              className="border-t-2 border-r-2 border-b-2 border-[#b7b5b5] w-[2.31rem] h-[2.2rem] rounded-tr-md rounded-br-md bg-white text-[#656668] cursor-pointer  transition duration-200 hover:bg-[#e8e6e6]"
             >
               +
             </button>

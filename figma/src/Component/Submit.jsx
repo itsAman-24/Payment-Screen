@@ -26,14 +26,15 @@ const styles = {
     maxWidth: "400px",
     margin: "20px auto",
     textAlign: "center",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
     position: "absolute",
     top: "10.8rem",
-    left: "51.1rem"
+    left: "52.1rem",
   },
   title: {
     color: "#3366cc",
     fontSize: "1.5em",
+    fontWeight: "500",
     margin: "0 0 10px 0",
   },
   message: {

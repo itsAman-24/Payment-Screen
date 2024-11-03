@@ -6,27 +6,27 @@ const Header = () => {
       </div>
 
       <div className="flex flex-row gap-8 text-lg font-normal">
-        <p className="detail-plan text-[#124974] text-xl">Your plan includes:</p>
+        <p className="detail-plan text-[#124974] text-xl">
+          Your plan includes:
+        </p>
 
         <div className="flex flex-row gap-[.5rem]">
-        <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
-        <p>24/7 customer care</p>
+          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <p>24/7 customer care</p>
         </div>
 
         <div className="flex flex-row gap-[.5rem]">
-        <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
-        <p>24/7 customer care</p>
+          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <p>24/7 customer care</p>
         </div>
 
         <div className="flex flex-row gap-[.5rem]">
-        <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
-        <p>24/7 customer care</p>
+          <i class="fa-solid fa-circle-check text-[#146EB4] mt-[.4rem] w-[1.25rem] h-[1.25rem]"></i>
+          <p>24/7 customer care</p>
         </div>
-       
-       
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Header;

@@ -21,31 +21,32 @@ const App = () => {
     setTotal(subtotal + calculatedGst);
   }, [userCount, pricePerUser]);
 
+  // Handles the change in total number of users want to buy plan
   const handleUserCountChange = (increment) => {
     setUserCount((prev) => Math.max(1, prev + increment));
   };
 
+  //Handles the billing cycle change of the plan
   const handleBillingCycleChange = (cycle) => {
     setBillingCycle(cycle);
     setPricePerUser(cycle === "monthly" ? 1200 : 1800);
-    console.log(billingCycle)
+    console.log(billingCycle);
   };
-2
 
-  //handles when the user submits the purchase
-
+  //Handles when the user submits the purchase
   const handleSubmitPurchase = () => {
     setIsSubmitted(true);
   };
 
+  //Redirects to the summary component from submit component
   const handleBackToSummary = () => {
     setIsSubmitted(false);
-  }
+  };
 
+  //Handles the change of the plan
   function handleChangePlan(cycle) {
     setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly");
     setPricePerUser(cycle === "yearly" ? 1200 : 1800);
-
   }
 
   return (
@@ -62,10 +63,7 @@ const App = () => {
       <Invoice />
 
       {isSubmitted ? (
-        <Submit
-         total={total}
-         handleBackToSummary={handleBackToSummary}
-        />
+        <Submit total={total} handleBackToSummary={handleBackToSummary} />
       ) : (
         <Summary
           billingCycle={billingCycle}
@@ -77,7 +75,6 @@ const App = () => {
           handleChangePlan={handleChangePlan}
         />
       )}
-
     </div>
   );
 };
