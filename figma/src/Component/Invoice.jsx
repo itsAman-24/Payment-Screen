@@ -1,7 +1,6 @@
 const Invoice = () => {
-
   return (
-    <div className="invoice-details relative bg-white shadow-2xl flex flex-col w-[36.7rem] gap-6 rounded-lg p-[1.3rem] left-[12.2rem] 2xl:left-[15.4rem] 3xl:left-[17.4rem] 4xl:left-[21.4rem] 5xl:left-[27.4rem] 6xl:left-[36.4rem] bottom-[2rem] pb-[3rem]">
+    <div className="invoice-details relative bg-white shadow-2xl flex flex-col w-[36.7rem] gap-6 rounded-lg p-[1.3rem] left-[12.2rem] 2xl:left-[15.4rem] 3xl:left-[17.4rem] 4xl:left-[21.4rem] 5xl:left-[25.4rem] 6xl:left-[36.4rem] bottom-[2rem] pb-[3rem]">
       <div className="flex flex-row">
         <h2 className="text-[1.25rem] font-semibold">Invoice details</h2>
         <img

@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 const Summary = (props) => {
   const { billingCycle, userCount, setIsSubmitted, setBillingCycle } = props
 
-  const pricePerUser = (billingCycle === "yearly") ? 1800 : 1200
-  const subtotal = userCount * pricePerUser
+  const pricePerUser = (billingCycle === "yearly") ? 1800 : 1200;
+  const subtotal = userCount * pricePerUser;
+  
   const [total, gst] = useMemo(() => {
     return [subtotal + (subtotal * 0.18), subtotal * 0.18]
   }, [subtotal])
@@ -16,7 +17,7 @@ const Summary = (props) => {
   }
 
   return (
-    <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] 2xl:left-[54rem] 3xl:left-[56rem] 4xl:left-[60rem] 5xl:left-[66rem] 6xl:left-[75rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">
+    <div className="relative w-[28.4rem] bottom-[62rem] left-[52rem] 2xl:left-[54rem] 3xl:left-[56rem] 4xl:left-[60rem] 5xl:left-[64rem] 6xl:left-[75rem] gap-0 flex-1 bg-white p-[1.3rem] rounded-lg shadow-2xl">
       <h2 className="summary-heading text-[1.25rem] font-semibold mb-[.8rem] border-b border-[#b7b5b5] pb-[1rem]">
         Summary
       </h2>

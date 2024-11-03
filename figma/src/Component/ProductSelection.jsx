@@ -15,7 +15,7 @@ const ProductSelection = (props) => {
 
   return (
     <div className="sub-container bg-white pl-[6.4rem]">
-      <div className="product-box relative bg-white rounded-lg p-6 shadow-2xl w-[36.7rem] bottom-[4rem] ml-[6rem] 2xl:ml-[9rem] 3xl:ml-[11rem] 4xl:ml-[17rem] 5xl:ml-[19rem] 6xl:ml-[30rem]">
+      <div className="product-box relative bg-white rounded-lg p-6 shadow-2xl w-[36.7rem] bottom-[4rem] ml-[6rem] 2xl:ml-[9rem] 3xl:ml-[11rem] 4xl:ml-[15rem] 5xl:ml-[19rem] 6xl:ml-[30rem]">
         <div className="flex items-center gap-3 border-b border-[#b7b5b5] align-middle pb-4">
           <img
             src="https://pbs.twimg.com/profile_images/1402181651036213249/cipFOVap_400x400.jpg"
